@@ -68,15 +68,10 @@ contract Raffle is VRFConsumerBaseV2 {
             i_callBackGasLimit,
             NUM_WORDS
         );
-            function fulfillRandomWords(
-        uint256 _requestId,
-        uint256[] memory _randomWords
-        ) internal override {
-        require(s_requests[_requestId].exists, "request not found");
-        s_requests[_requestId].fulfilled = true;
-        s_requests[_requestId].randomWords = _randomWords;
-        emit RequestFulfilled(_requestId, _randomWords);
-    }
+        function fullfillRandomWords(
+            uint256 requestId,
+            uint256[] memory randomWords 
+        ) internal override {}
     }
 
     //Getter fees
